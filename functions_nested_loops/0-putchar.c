@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_alphabet - check the code
+ * main - check the code
  *
- *
+ * Return: 0
  */
 
 int main(void)
