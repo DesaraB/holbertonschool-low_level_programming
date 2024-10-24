@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * print_alphabet - check the code
+ *
+ *
+ */
+
 int main(void)
 {
 	_putchar('_');
