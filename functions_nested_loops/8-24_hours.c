@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
  * jack_bauer - Entry point
- * Print clock from 0:0 to 23:59;
+ * Print clock from 0:00 to 23:59;
  * Return: 0
  */
+
 void jack_bauer(void)
 {
 	int i, j, k, l;
