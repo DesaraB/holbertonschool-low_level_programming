@@ -15,6 +15,11 @@ void print_rev(char *s)
 	{
 		last_index = i;
 	}
+	if (!last_index)
+	{
+		_putchar('\n');
+	}
+
 	for (i = last_index; i >= 0; i--)
 	{
 		_putchar(s[i]);
