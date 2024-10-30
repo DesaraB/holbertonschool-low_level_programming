@@ -9,13 +9,13 @@
 void print_rev(char *s)
 {
 	int i;
-	int last_index = 0;
+	int last_index;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		last_index = i;
 	}
-	if (last_index == 0)
+	if (!last_index)
 		return;
 	for (i = last_index; i >= 0; i--)
 	{
