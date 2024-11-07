@@ -1,35 +1,31 @@
 #include "main.h"
 
 /**
-* prime_rec - check is nr is prime
+* is_prime - check is nr is prime
 * @n: number to check
 * @i: tester number
 * Return: 1 or 0
 */
 
-int prime_rec(int n, int i)
+int is_prime(int n, int i)
 {
 	if (n <= 1)
-	{
 		return (0);
-	}
 	if (n % i == 0)
-	{
 		return (0);
-	}
-	if (i == n - 1)
-	{
+	if (i > n / 2)
 		return (1);
-	}
-	return (prime_rec(n, i + 1));
+	else
+		return  (is_prime(n, i + 1));
 }
 
 /**
-* is_prime_number - thj
-* @n: hjid
-*/
+ * is_prime_number - function to test primary function
+ * @n: nr
+ * Return: 1
+ */
 
 int is_prime_number(int n)
 {
-	return (prime_rec(n, 2));
+	return (is_prime(n, 2));
 }
