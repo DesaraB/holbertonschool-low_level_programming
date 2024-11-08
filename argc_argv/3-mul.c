@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	long int result;
+	int result;
 
 	if (argc < 3)
 	{
@@ -18,6 +18,6 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	result = atoi(argv[1]) * atoi(argv[2]);
-	printf("%ld\n", result);
-	return (result);
+	printf("%d\n", result);
+	return (0);
 }
