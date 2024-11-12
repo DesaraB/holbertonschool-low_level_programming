@@ -3,10 +3,10 @@
 #include <stddef.h>
 
 /**
- * alloc_grid - Returns a pointer to a 2D array of integers
- * @width: Width of the 2D array
- * @height: Height of the 2D array
- * Return: Pointer to the new array, or NULL
+ * alloc_grid - returns a pointer to a 2D array of integers
+ * @width: width of the 2D array
+ * @height: height of the 2D array
+ * Return: pointer to the new array, or NULL
  */
 
 int **alloc_grid(int width, int height)
@@ -17,7 +17,7 @@ int **alloc_grid(int width, int height)
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	array = malloc(height * sizeof(int *));
+	array = malloc(height * sizeof(int));
 
 	if (array == NULL)
 		return (NULL);
