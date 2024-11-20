@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdarg.h>
 #include"variadic_functions.h"
-#include <stddef.h>
 
 /**
 * print_strings -entry point,prints a string
