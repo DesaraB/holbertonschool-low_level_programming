@@ -1,48 +1,91 @@
-#include <stdarg.h>
+#include "variadic_functions.h"
 #include <stdio.h>
-#include <string.h>
+#include <stdarg.h>
+
 /**
- *print_all - function that prints everything
- *@format: a list of types of arguments passed to the function
- */
+* print_char - prints a character
+* @arg: points to the variadic argument
+*/
+
+void print_char(va_list arg)
+{
+	printf("%c", va_arg(arg, int));
+}
+
+/**
+* print_int - prints an integer
+* @arg: points to the variadic argument
+*/
+
+void print_int(va_list arg)
+{
+	printf("%d", va_arg(arg, int));
+}
+
+/**
+* print_float - prints a float
+* @arg: points to the variadic argument
+*/
+
+void print_float(va_list arg)
+{
+	printf("%f", va_arg(arg, double));
+}
+
+/**
+* print_string - prints a string
+* @arg: points to the variadic argument
+*/
+
+void print_string(va_list arg)
+{
+	char *str = va_arg(arg, char *);
+
+	if (str == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+
+	printf("%s", str);
+}
+
+/**
+* print_all - function that prints everything
+* @format: a list of types of arguments passed to the function
+*/
+
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0;
-	char *t;
-	char *separator = ", ";
-	int length = format == NULL ? 0 : strlen(format);
+	int i = 0, j = 0;
+	char *separator = "";
+	printer_t funcs[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
+	};
 
-	if (length != 0)
-	{
 	va_start(args, format);
-	while (format[i] != '\0')
+
+	while (format != NULL && (format[i] != '\0'))
 	{
-		switch (format[i])
+		j = 0;
+		while (j < 4 && (format[i] != *(funcs[j].type)))
+			j++;
+
+		if (j < 4)
 		{
-			case 's':
-				t = va_arg(args, char *);
-				if (t != NULL)
-				{
-					printf("%s%s", t, i == length - 1 ? "" : separator);
-					break;
-				}
-					printf("(nil)%s", i == length - 1 ? "" : separator);
-					break;
-			case 'i':
-				printf("%d%s", va_arg(args, int), i == length - 1 ? "" : separator);
-				break;
-			case 'f':
-				printf("%f%s", va_arg(args, double), i == length - 1 ? "" : separator);
-				break;
-			case 'c':
-				printf("%c%s", va_arg(args, int), i == length - 1 ? "" : separator);
-				break;
-			default:
-				break;
+			printf("%s", separator);
+			funcs[j].print(args);
+			separator = ", ";
 		}
+
 		i++;
 	}
-		}
-		printf("\n");
+
+	printf("\n");
+
+	va_end(args);
 }
