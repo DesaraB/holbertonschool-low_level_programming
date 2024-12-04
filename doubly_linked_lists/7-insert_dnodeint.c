@@ -10,8 +10,8 @@
  * Return: adress of the new node or NULL
  */
 
- dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
- {
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+{
 	dlistint_t *new, *virtual;
 	unsigned int count;
 
