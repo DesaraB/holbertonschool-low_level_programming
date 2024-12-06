@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	FILE *outputFile;
     char name[50]; 
     int nameCount = 0; 
-    char letter = 'A'; 
+    char letter = 'D'; 
 
 	// hap skedarin per lexim
     inputFile = fopen("names.txt", "r");
@@ -32,12 +32,13 @@ int main(int argc, char *argv[])
     while (fgets(name, sizeof(name), inputFile) != NULL)
 	{
         nameCount++;
-        printf("Name: %s\n", name);
+        //printf("Name: %s\n", name);
 
 	// kontrollo nese emri fillon me shkronjen e duhur
         if (toupper(name[0]) == letter)
 		{
-            fprintf(outputFile, "%s\n", name);
+			printf("%s\n", name);
+            fprintf(outputFile, "%s", name);
         }
 	}
 	// printon nr total te emrave
